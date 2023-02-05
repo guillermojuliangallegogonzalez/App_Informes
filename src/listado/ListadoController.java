@@ -1,18 +1,18 @@
 package listado;
 
+
+import facturas.FacturasController;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
-import facturas.FacturasController;
-import static facturas.FacturasController.conexion;
+import java.util.ResourceBundle;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import java.net.URL;
 import java.sql.Connection;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.TextField;
 import javax.swing.JOptionPane;
 import net.sf.jasperreports.engine.JRException;
@@ -21,6 +21,7 @@ import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.engine.util.JRLoader;
 import net.sf.jasperreports.view.JasperViewer;
+
 
 /**
  * FXML Controller class
@@ -49,23 +50,28 @@ public class ListadoController implements Initializable {
     
     @FXML
     public void generar(){
-        generaInforme(numeroTF);
+        generaInforme();
     }
     
-    public void generaInforme(TextField tintro) {
+    public void generaInforme() {
                 
         try {
             JasperReport jr = null;
+            try {
+                jr = (JasperReport) JRLoader.loadObject(ListadoController.class.getResource("Lista.jasper"));
+            } catch (JRException ex) {
+                Logger.getLogger(ListadoController.class.getName()).log(Level.SEVERE, null, ex);
+            }
             JasperReport jr1 = null;
             try {
-                jr = (JasperReport) JRLoader.loadObject(FacturasController.class.getResource("Facturas.jasper"));
-                jr1 = (JasperReport) JRLoader.loadObject(FacturasController.class.getResource("Cliente.jasper"));
+                jr1 = (JasperReport) JRLoader.loadObject(ListadoController.class.getResource("Cliente.jasper"));
             } catch (JRException ex) {
-                Logger.getLogger(FacturasController.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(ListadoController.class.getName()).log(Level.SEVERE, null, ex);
             }
             //Map de parámetros
             Map parametros = new HashMap();
-            parametros.put("ADRRESSIDP", jr1);
+            
+            parametros.put("ADDRESSIDP", jr1);
 
             JasperPrint jp = (JasperPrint) JasperFillManager.fillReport(jr, parametros, conexion);
             JasperViewer.viewReport(jp,false);
@@ -74,6 +80,6 @@ public class ListadoController implements Initializable {
             JOptionPane.showMessageDialog(null, ex);
         }
         
-    }  
+    } 
     
 }
