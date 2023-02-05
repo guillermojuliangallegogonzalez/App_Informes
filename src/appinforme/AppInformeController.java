@@ -31,16 +31,12 @@ public class AppInformeController implements Initializable {
     @FXML
     private BorderPane pantallaPrincipal;
 
-    //Variables
-    public static Connection conexion = null;
-
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        //metodos.metodos.conectaBD(conexion);
     }
 
     //Botón Salir

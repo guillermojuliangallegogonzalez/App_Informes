@@ -110,6 +110,13 @@
       </HBox>
    </top>
    <center>
-      <BorderPane fx:id="pantallaPrincipal" prefHeight="454.0" prefWidth="655.0" BorderPane.alignment="CENTER" />
+      <BorderPane fx:id="pantallaPrincipal" prefHeight="454.0" prefWidth="655.0" BorderPane.alignment="CENTER">
+         <center>
+            <ImageView fitHeight="183.0" fitWidth="432.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+               <image>
+                  <Image url="@../recursos/AppInformesNegro.png" />
+               </image>
+            </ImageView>
+         </center></BorderPane>
    </center>
 </BorderPane>

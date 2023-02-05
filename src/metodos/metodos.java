@@ -4,8 +4,6 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import javafx.application.Platform;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.layout.BorderPane;
 
 /**
  *
@@ -19,7 +17,7 @@ public class metodos {
     }
 
     //Función conectar BD
-    public static void conectaBD(Connection conexion) {
+    public static Connection conectaBD(Connection conexion) {
 
         //Establecemos conexión con la BD
         String baseDatos = "jdbc:hsqldb:hsql://localhost:9001/DataBaseTest";
@@ -39,7 +37,8 @@ public class metodos {
             System.err.println("Imposible Conectar");
             System.exit(1);
         }
-
+        
+        return conexion;
     }
 
     //Desconectar BD
