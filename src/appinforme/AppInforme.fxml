@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="520.0" prefWidth="720.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="appinforme.AppInformeController">
+   <left>
+      <VBox alignment="CENTER" prefHeight="460.0" prefWidth="60.0" style="-fx-background-color: #151928;" BorderPane.alignment="CENTER">
+         <children>
+            <HBox alignment="CENTER" prefHeight="60.0" prefWidth="60.0">
+               <children>
+                  <JFXButton fx:id="facturasBtn" alignment="CENTER" contentDisplay="CENTER" onAction="#cargarFacturas" textFill="TRANSPARENT">
+                     <graphic>
+                        <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../recursos/factura.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <tooltip>
+                        <Tooltip text="Listado Facturas" />
+                     </tooltip>
+                  </JFXButton>
+               </children></HBox>
+            <HBox alignment="CENTER" prefHeight="60.0" prefWidth="60.0">
+               <children>
+                  <JFXButton fx:id="ventasBtn" alignment="CENTER" contentDisplay="CENTER" onAction="#cargarVentas" textFill="TRANSPARENT">
+                     <graphic>
+                        <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../recursos/grafico.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <tooltip>
+                        <Tooltip text="Ventas Totales" />
+                     </tooltip>
+                  </JFXButton>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="60.0" prefWidth="60.0">
+               <children>
+                  <JFXButton fx:id="clienteBtn" alignment="CENTER" contentDisplay="CENTER" onAction="#cargarClientes" textFill="TRANSPARENT">
+                     <graphic>
+                        <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../recursos/cliente_factura.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <tooltip>
+                        <Tooltip text="Facturas por Cliente" />
+                     </tooltip>
+                  </JFXButton>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="60.0" prefWidth="60.0">
+               <children>
+                  <JFXButton fx:id="listadoBtn" alignment="CENTER" contentDisplay="CENTER" onAction="#cargarListado" textFill="TRANSPARENT">
+                     <graphic>
+                        <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../recursos/pago-en-efectivo.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <tooltip>
+                        <Tooltip text="Subinforme Listado Facturas" />
+                     </tooltip>
+                  </JFXButton>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="60.0" prefWidth="60.0">
+               <children>
+                  <JFXButton fx:id="salirBtn" alignment="CENTER" contentDisplay="CENTER" onAction="#salir" textFill="TRANSPARENT">
+                     <graphic>
+                        <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../recursos/salida.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <tooltip>
+                        <Tooltip text="Salir" />
+                     </tooltip>
+                  </JFXButton>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </left>
+   <top>
+      <HBox alignment="CENTER" prefHeight="60.0" prefWidth="720.0" style="-fx-background-color: #151928;" BorderPane.alignment="CENTER">
+         <children>
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <ImageView fitHeight="60.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../recursos/AppInforme.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </top>
+   <center>
+      <BorderPane fx:id="pantallaPrincipal" prefHeight="454.0" prefWidth="655.0" BorderPane.alignment="CENTER" />
+   </center>
+</BorderPane>
