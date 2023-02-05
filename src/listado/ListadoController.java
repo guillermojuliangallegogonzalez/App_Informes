@@ -56,18 +56,19 @@ public class ListadoController implements Initializable {
                 
         try {
             JasperReport jr = null;
+            JasperReport jr1 = null;
             try {
                 jr = (JasperReport) JRLoader.loadObject(FacturasController.class.getResource("Facturas.jasper"));
+                jr1 = (JasperReport) JRLoader.loadObject(FacturasController.class.getResource("Cliente.jasper"));
             } catch (JRException ex) {
                 Logger.getLogger(FacturasController.class.getName()).log(Level.SEVERE, null, ex);
             }
             //Map de parámetros
             Map parametros = new HashMap();
-            int nproducto = Integer.parseInt(tintro.getText());
-            parametros.put("ParamProducto", nproducto);
+            parametros.put("ADRRESSIDP", jr1);
 
             JasperPrint jp = (JasperPrint) JasperFillManager.fillReport(jr, parametros, conexion);
-            JasperViewer.viewReport(jp);
+            JasperViewer.viewReport(jp,false);
         } catch (JRException ex) {
             System.out.println("Error al recuperar el jasper");
             JOptionPane.showMessageDialog(null, ex);
